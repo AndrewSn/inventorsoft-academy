@@ -13,31 +13,26 @@ import java.util.List;
 @RestController
 @RequestMapping("/match")
 public class MatchController {
-    MatchRepository matchRepository;
     MatchService matchService;
 
     @Autowired
-    public MatchController(MatchRepository matchRepository, MatchService matchService) {
-        this.matchRepository = matchRepository;
+    public MatchController(MatchService matchService) {
         this.matchService = matchService;
     }
 
     @PostMapping("/")
     public void createMatch(@Valid @RequestBody Match match) {
-
         matchService.createMatch(match);
     }
 
     @GetMapping("/")
     public Match getmatchById(@RequestParam(name = "id") Long id) {
-
         return matchService.getMatchById(id);
     }
 
 
     @GetMapping("/all")
     public List<Match> getAllMatch() {
-
         return matchService.getAllMatch();
     }
 

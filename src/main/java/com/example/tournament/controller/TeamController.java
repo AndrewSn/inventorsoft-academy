@@ -12,12 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/team")
 public class TeamController {
-    TeamRepository teamRepository;
     TeamService teamService;
 
     @Autowired
-    public TeamController(TeamRepository teamRepository, TeamService teamService) {
-        this.teamRepository = teamRepository;
+    public TeamController(TeamService teamService) {
         this.teamService = teamService;
     }
 
